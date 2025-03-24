@@ -6,7 +6,7 @@ export default function ClientComponent() {
   const [message, setMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/messages")
+    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/messages`)
       .then((res) => res.json())
       .then((data) => setMessage(data.message))
       .catch(() => setMessage("Error fetching data"));

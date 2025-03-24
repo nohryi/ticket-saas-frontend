@@ -22,9 +22,10 @@ import ClientComponent from "@/app/components/ClientComponent"; // ✅ Import cl
 
 // ✅ Server-Side Rendering (SSR) Fetch
 async function fetchMessageSSR() {
-  const res = await fetch("http://localhost:3001/api/messages", {
-    cache: "no-store",
-  }); // Ensure fresh data
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/messages`,
+    { cache: "no-store" }
+  ); // Ensure fresh data
   const data = await res.json();
   return data.message;
 }
